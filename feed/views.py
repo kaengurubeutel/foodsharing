@@ -11,4 +11,4 @@ class FoodForm(forms.ModelForm):
 
 @login_required()
 def feed(request):
-    all
+
