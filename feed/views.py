@@ -1,9 +1,9 @@
-from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from django.forms import forms
+from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from feed import models
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from feed.models import Food, Profile
@@ -11,17 +11,18 @@ from foodies2 import settings
 
 
 class FoodForm(forms.ModelForm):
+    """Klasse zur Formularerstellung."""
     class Meta:
         model = models.Food
         exclude = ['user']
+
 
 
 def homepage(request):
     return render(request, 'index.html')
 
 
-def feed(request):
-    return render(request, 'feed.html')
+
 
 # für die folgenenden Views muss man angemeldet sein
 
@@ -100,7 +101,7 @@ def get_all_posts(request):
 
 # aus der Vorlesung
 
-
+'''
 def post_save_receiver(sender, instance, created, **kwargs):
     if created:
         user_profile = Profile(user=instance)
@@ -108,3 +109,7 @@ def post_save_receiver(sender, instance, created, **kwargs):
 
 
 post_save.connect(post_save_receiver, sender=settings.AUTH_USER_MODEL)
+'''
+
+
+
