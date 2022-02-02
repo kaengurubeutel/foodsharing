@@ -6,15 +6,6 @@
 
     {% if user.is_authenticated %}
 
-
-        <form action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <p><button type="submit">Hochladen</button></p>
-        </form>
-
-
-
     {% else %}
      <div id='text1'>
       <h2>support<br/>your local<br>føødbuddies.</h2>

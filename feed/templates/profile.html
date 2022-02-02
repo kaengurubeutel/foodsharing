@@ -2,9 +2,13 @@
 {% block title %}Feed{% endblock %}
 {% block content %}
     {% load static %}
+    {% load profile %}
             <div id='container'>
-                {% for image in images %}
-                    <div class='img'><img src="{{ image.image.url }}"/><br/>{{ image.title }}</div>
+                <h2>{{ user.username }}</h2>
+                <img src="{% profile.avatar.url %}" alt="profilbild"/>
+                <h3> {{ profile.email }}</h3>
+                {% for food in foods %}
+                    <div class='img'><img src="{{ food.image.url }}"/><br/>{{ food.description }}</div>
                 {% endfor %}
             </div>
 {% endblock %}
