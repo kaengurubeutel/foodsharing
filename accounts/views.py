@@ -6,21 +6,23 @@ from django.shortcuts import redirect, render
 # Create your views here.
 from feed import models
 
+
 class ProfileForm(forms.ModelForm):
+    """Klasse zur Formularerstellung."""
     class Meta:
         model = models.Profile
         exclude = ['user']
 
+
 def register(request):
     if request.method == 'POST':
-        userForm = UserCreationForm(request.POST)
-        #profileForm = ProfileForm(request.POST)
-        if userForm.is_valid(): #and profileForm.is_valid():
-            userForm.save()
-            #profileForm.save()
+        user_form = UserCreationForm(request.POST)
+        profile_form = ProfileForm(request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()  # Neuen User anlegen
+            profile_form.save()  # Neues Profil anlegen
             return redirect('login')
     else:
-        userForm = UserCreationForm()
-        #profileForm = ProfileForm()
-    return render(request, 'auth/register.html', dict(form=userForm)) #, profileForm=profileForm))
-
+        user_form = UserCreationForm()
+        profile_form = ProfileForm()
+    return render(request, 'auth/register.html', dict(form=user_form, profile_form=profile_form))

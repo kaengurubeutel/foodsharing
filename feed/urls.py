@@ -1,9 +1,9 @@
 from django.urls import path
 
-from .views import homepage, get_all_posts, upload
+from .views import homepage, upload, get_profile_posts
 
 urlpatterns =[
     path('', homepage, name='homepage'),
-    path('feed/', get_all_posts, name='feed'),
-    path('upload/', upload, name='upload')
+    path('profile',get_profile_posts ,name='profile'),
+    path('upload', upload, name='upload')
 ]

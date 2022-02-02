@@ -4,10 +4,22 @@
 {% block content %}
 {% load static %}
 
-    <div class='text1'>
+    {% if user.is_authenticated %}
+
+
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><button type="submit">Hochladen</button></p>
+        </form>
+
+
+
+    {% else %}
+     <div id='text1'>
       <h2>support<br/>your local<br>føødbuddies.</h2>
     </div>
-    <div class='mainImg'>
+    <div id='mainImg'>
       <img src="{% static 'media/food500px.jpeg' %}" alt="Focaccia"/>
     </div>
     <div id="text2">
@@ -41,7 +53,13 @@
             ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum
             dolor sit amet. Lorem ipsum dolor sit amet, consetetur
         </p>
-    </div>
+        </div>
+
+    {% endif %}
+
+
+
+
 
 
  {% endblock %}

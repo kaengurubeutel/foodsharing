@@ -43,11 +43,11 @@
     </div>
     <div id="register">
     <h2>New tø the Party?</h2>
-    <form method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_p}}
+        {{ form.as_p }}
         {{profile_form.as_p}}
-        <button type="submit">Register</button>
+        <p><button type="submit">Register</button></p>
     </form>
     </div>
 
