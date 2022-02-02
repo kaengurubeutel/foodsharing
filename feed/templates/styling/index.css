@@ -5,8 +5,82 @@
 
 body {
     font-family: 'Apercu', sans-serif;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
 }
+
+/* Header (Footer) */
+
+
+#label {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    justify-self: start;
+
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+nav {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    justify-self: end;
+
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+ul {
+    text-align: right;
+}
+
+ul li {
+    display: inline-block;
+    list-style-type: none;
+
+    margin-left: 15px;
+}
+
+footer {
+    grid-column: 1/4;
+    grid-row: 6/7;
+    justify-self: start;
+
+    padding: 50px;
+    font-size: 18px;
+}
+
+footer li {
+    margin-right: 30px;
+}
+
+/* main */
+
+#text1 {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    justify-self: start;
+
+    margin: 100px;
+    font-size: 40px;
+}
+
+#mainImg {
+    grid-column: 1/4;
+    grid-row: 3/4;
+
+    margin-bottom: 50px;
+}
+
+#mainImg img {
+    max-height: 500px;
+}
+
+/* Login, Logout, Register */
 
 input {
     font-family: inherit;
@@ -15,3 +89,12 @@ input {
     padding: 5px;
 }
 
+#login {
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
+
+#register {
+    grid-column: 2/3;
+    grid-row: 5/6;
+}
