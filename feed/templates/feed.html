@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name = "viewport" content ="width=device-width, initial-scale = 1" />
-    <title>Føødies</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    {% load static %}
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    />
-    <link rel="stylesheet" type="text/css" href="{% static 'styling/index.css' %}"
-    />
-  </head>
+{% extends 'Navbar.html' %}
+{% block title %}Feed{% endblock %}
+{% block content %}
             <div id='container'>
                 {% for image in images %}
                     <div class='img'><img src="{{ image.image.url }}"/><br/>{{ image.title }}</div>
                 {% endfor %}
             </div>
-        <footer>
-            <ul>
-                <li>Datenschutz</li>
-                <li>Impressum</li>
-            </ul>
-        </footer>
-
-</html>
+{% endblock %}

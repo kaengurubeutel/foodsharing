@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Løgin</title>
-</head>
-<body>
+{% extends 'Navbar.html' %}
+{% block title %}Føødies{% endblock %}
+{% block content %}
     <h1>Løgin</h1>
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit">Løgin</button>
     </form>
-</body>
-</html>
+{% endblock %}
