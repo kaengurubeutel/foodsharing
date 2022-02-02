@@ -2,10 +2,12 @@
 {% block title %}Føødies{% endblock %}
 {% block content %}
 
+    <div class="formula">
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <p><button type="submit">Hochladen</button></p>
+    <p><button type="submit">Upload</button></p>
 </form>
+</div>
 
 {% endblock %}
