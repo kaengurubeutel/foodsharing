@@ -13,8 +13,9 @@
     />
   </head>
   <body>
-    <Header>
+    <div id="label">
         <h1>føødies</h1>
+      </div>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
@@ -24,15 +25,16 @@
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'register_url' %}">Register</a></li>
                 {% endif %}
             </ul>
         </nav>
-    </Header>
-    <main>
-      <h2>support<br/>your local<br>foodbuddies.</h2>
-      <img src="media/food.jpeg" alt="Focaccia"/>
-    </main>
+    <div id='text1'>
+      <h2>support<br/>your local<br>føødbuddies.</h2>
+    </div>
+    <div id='mainImg'>
+      <img src="media/food500px.jpeg" alt="Focaccia"/>
+    </div>
     <div id='login'>
       <h2>Login</h2>
       <h3>Username</h3>
