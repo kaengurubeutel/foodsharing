@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.forms import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -44,5 +45,7 @@ def get_profile_posts(request):
         ))
 def get_all_posts(request):
     user_id = request.GET.get('user')
+    other_users = User.objects.filter(id != int(user_id))
+
 
 
