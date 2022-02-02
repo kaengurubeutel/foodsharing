@@ -16,6 +16,13 @@ class FoodForm(forms.ModelForm):
         exclude = ['user']
 
 
+def homepage(request):
+    return render(request, 'index.html')
+
+
+def feed(request):
+    return render(request, 'feed.html')
+
 # für die folgenenden Views muss man angemeldet sein
 
 @login_required()
