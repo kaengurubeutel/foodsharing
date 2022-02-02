@@ -19,7 +19,22 @@ class FoodForm(forms.ModelForm):
 
 
 def homepage(request):
-    return render(request, 'index.html')
+    user_id = request.GET.get('user')
+    if user_id:
+        foods = models.Food.objects.all()
+        profiles = models.Profile.objects.all()
+        users = models.User.objects.all()
+    else:
+        foods = []
+        profiles = []
+        users = []
+
+    return render(request, 'index.html', dict(
+        foods=foods,
+        profiles=profiles,
+        users=users,
+    ))
+    
 
 
 
@@ -28,15 +43,18 @@ def homepage(request):
 
 @login_required()
 def upload(request):
+    # werden Formulardaten geschickt?
+    print("hallo")
     if request.method == "POST":
         form = FoodForm(request.POST, request.FILES)
         form.instance.user = request.user
-        if form.is_valid():
+        if form.is_valid():  # Formular überprüfen
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('feed')  # Umleitung
     else:
-        form = FoodForm()
+        form = FoodForm()  # leeres Formular
     return render(request, 'upload.html', dict(form=form))
+
 
 
 # Löscht Foodpost und gibt alle anderen zurück
@@ -80,23 +98,6 @@ def get_profile_posts(request):
 
 # gibt alle Food posts zurück
 
-@login_required()
-def get_all_posts(request):
-    user_id = request.GET.get('user')
-    if user_id:
-        foods = models.Food.objects.all()
-        profiles = models.Profile.objects.all()
-        users = models.User.objects.all()
-    else:
-        foods = []
-        profiles = []
-        users = []
-
-    return render(request, 'feed.html', dict(
-        foods=foods,
-        profiles=profiles,
-        users=users,
-    ))
 
 
 # aus der Vorlesung
