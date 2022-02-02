@@ -1,11 +1,10 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: #ECECEC;
 }
 
 body {
-
+    background-color: #ECECEC;
     font-family: 'Apercu', sans-serif;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -16,8 +15,7 @@ body {
 /* Header (Footer) */
 
 
-header {
-    background-color: aliceblue;
+#label {
     grid-column: 1/2;
     grid-row: 1/2;
     justify-self: start;
