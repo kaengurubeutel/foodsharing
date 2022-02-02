@@ -5,7 +5,7 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Anja Zieger\PycharmProjects\foodsharingMain\db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\smuhl\OneDrive\Desktop\3.semester\webanwendungen mit python\foodsharing\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
