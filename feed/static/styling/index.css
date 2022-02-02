@@ -147,7 +147,7 @@ button:hover {
     font-weight: bold;
 }
 
-#login {
+.formula {
     grid-column: 2/3;
     grid-row: 5/6;
 
@@ -155,16 +155,12 @@ button:hover {
     padding: 150px;
 }
 
-#register {
-    grid-column: 2/3;
-    grid-row: 6/7;
-
-    text-align: center;
-    padding: 150px;
+.formula ul {
+    display: none;
 }
 
-#register ul {
-    display: none;
+#id_description {
+    margin: 20px;
 }
 
 form {
