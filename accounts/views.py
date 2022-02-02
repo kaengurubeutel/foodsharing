@@ -22,5 +22,5 @@ def register(request):
     else:
         userForm = UserCreationForm()
         profileForm = ProfileForm()
-    return render(request, 'registration/register.html', dict(form=userForm, profileForm=profileForm))
+    return render(request, 'auth/register.html', dict(form=userForm, profileForm=profileForm))
 
