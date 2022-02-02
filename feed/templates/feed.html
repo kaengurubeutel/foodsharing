@@ -1,6 +1,7 @@
 {% extends 'Navbar.html' %}
 {% block title %}Feed{% endblock %}
 {% block content %}
+    {% load static %}
             <div id='container'>
                 {% for image in images %}
                     <div class='img'><img src="{{ image.image.url }}"/><br/>{{ image.title }}</div>
