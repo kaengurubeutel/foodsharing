@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Apercu', sans-serif;
+    display: flex;
+}
+
+input {
+    font-family: inherit;
+    height: 20px;
+    width: 200px;
+    padding: 5px;
+}
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content ="width=device-width, initial-scale = 1" />
+    <title>Føødies</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link rel="stylesheet" type="text/css" href="styling/index.css"
+    />
+  </head>
+  <body>
+    <Header>
+        <h1>føødies</h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a>Home</a></li>
+                <li><a href="{% url 'feed' %}">Feed</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </Header>
+    <main>
+      <h2>support<br/>your local<br>foodbuddies.</h2>
+      <img src="media/food.jpeg" alt="Focaccia"/>
+    </main>
+    <div id='login'>
+      <h2>Login</h2>
+      <h3>Username</h3>
+      <input/>
+      <h3>Password</h3>
+      <input/>
+      <br/>
+      <button>login</button>
+    </div>
+    <div id='register'>
+      <h2>New to the Party?</h2>
+      <h3>Username</h3>
+      <input/>
+      <h3>Password</h3>
+      <input/>
+      <h3>Repeat Password</h3>
+      <input/>
+      <br/>
+      <button>register</button>
+    </div>
+    <footer>
+      <ul>
+        <li>Datenschutz</li>
+        <li>Impressum</li>
+      </ul>
+    </footer>
+
+
+  </body>
+</html>
