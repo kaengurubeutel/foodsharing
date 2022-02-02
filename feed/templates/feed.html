@@ -13,10 +13,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styling/index.css' %}"
     />
   </head>
-  <body>
-    <div id="label">
-        <h1>føødies</h1>
-      </div>
+    <body>
+        <div id="label">
+            <h1>føødies</h1>
+        </div>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
@@ -31,6 +31,19 @@
                 {% endif %}
             </ul>
         </nav>
+            <div id='container'>
+                {% for image in images %}
+                    <div class='img'><img src="{{ image.image.url }}"/><br/>{{ image.title }}</div>
+                {% endfor %}
+            </div>
+        <footer>
+            <ul>
+                <li>Datenschutz</li>
+                <li>Impressum</li>
+            </ul>
+        </footer>
 
-</body>
+
+
+    </body>
 </html>

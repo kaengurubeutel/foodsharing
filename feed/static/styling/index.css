@@ -50,7 +50,7 @@ ul li {
 
 footer {
     grid-column: 1/4;
-    grid-row: 6/7;
+    grid-row: 7/8;
     justify-self: start;
 
     padding: 50px;
@@ -83,6 +83,12 @@ footer li {
     max-height: 500px;
 }
 
+#text2 {
+    grid-column: 1/4;
+    grid-row: 4/5;
+    margin: 30px;
+}
+
 /* Login, Logout, Register */
 
 input {
@@ -92,12 +98,31 @@ input {
     padding: 5px;
 }
 
+button {
+    font-family: inherit;
+}
+
 #login {
     grid-column: 2/3;
-    grid-row: 4/5;
+    grid-row: 5/6;
 }
 
 #register {
     grid-column: 2/3;
-    grid-row: 5/6;
+    grid-row: 6/7;
+}
+
+/* feed */
+
+#container {
+    grid-column: 1/4;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.img {
+    height: 400px;
+    width: 400px;
+    margin: 40px;
+    background-color: lightsalmon;
 }
