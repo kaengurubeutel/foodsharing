@@ -20,7 +20,7 @@ def register(request):
         profile_form = ProfileForm(request.POST)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()  # Neuen User anlegen
-            profile_form.save()  # Neues Profil anlegen
+            profile_form.save()
             return redirect('login')
     else:
         user_form = UserCreationForm()

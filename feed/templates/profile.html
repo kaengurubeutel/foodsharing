@@ -1,11 +1,11 @@
 {% extends 'Navbar.html' %}
 {% block title %}Feed{% endblock %}
 {% block content %}
-    {% load static %}
-    {% load profile %}
+ {% load cache %}
+
             <div id='container'>
                 <h2>{{ user.username }}</h2>
-                <img src="{% profile.avatar.url %}" alt="profilbild"/>
+                <img src="{ profile.avatar.url }" alt="profilbild"/>
                 <h3> {{ profile.email }}</h3>
                 {% for food in foods %}
                     <div class='img'><img src="{{ food.image.url }}"/><br/>{{ food.description }}</div>

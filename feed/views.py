@@ -14,6 +14,7 @@ class FoodForm(forms.ModelForm):
     """Klasse zur Formularerstellung."""
     class Meta:
         model = models.Food
+        fields = ('file', 'image')
         exclude = ['user']
 
 
