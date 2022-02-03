@@ -5,23 +5,19 @@
 
     {% if user.is_authenticated %}
 
-        <div id="container">
-        {% for food in feed %}
+        <div class="container">
+            {% for food in feed %}
 
             <div class="img">
-            <div class="avatar">
-            <p><img src="{{ food.avatar.url }}"  alt=""/> {{ food.name }}</p>
+             <div class="avatar">
+                <p><img src="{{ food.avatar.url }}"  alt=""/> {{ food.name }}</p>
+             </div>
+            <img class="post" src="{{ food.img.url }}" alt=""/>
+            <div class="description">
+                <h3>{{ food.description }}</h3>
+                <a href="mailto:{{ food.email }}">Email</a>
             </div>
-            <img src="{{ food.img.url }}" alt=""/>
-                <div class="description">
-            <p>{{ food.description }} alskdjföaifjoais
-            aldskjfaoifja
-            asdilfjal alkdsjflaij kadjfdkfjik iehgakjf iaehgaigh kadjfö
-            aöiolajf
-            ldkjfalö efjiajlk df</p>
-            <a href="mailto:{{ food.email }}">Email</a>
-                </div>
-            </div>
+        </div>
         {% endfor %}
         </div>
 
