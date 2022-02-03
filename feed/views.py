@@ -17,22 +17,31 @@ class FoodForm(forms.ModelForm):
         exclude = ['user']
 
 
+class Foodcontent:
+    def __init__(self, name, img, email, description, avatar):
+        self.name = name
+        self.img = img
+        self.email = email
+        self.description = description
+        self.avatar = avatar
+
 
 def homepage(request):
-    user_id = request.GET.get('user')
+    user_id = request.user
     if user_id:
         foods = models.Food.objects.all()
-        profiles = models.Profile.objects.all()
-        users = models.User.objects.all()
+
+        feed = []
+        for food in foods:
+            profile_tmp = Profile.objects.filter(user=food.user)[0]
+            feed.append(
+                Foodcontent(food.user.username, food.image, profile_tmp.email, food.description, profile_tmp.avatar))
+
     else:
-        foods = []
-        profiles = []
-        users = []
+        feed = []
 
     return render(request, 'index.html', dict(
-        foods=foods,
-        profiles=profiles,
-        users=users,
+        feed=feed
     ))
     
 

@@ -6,6 +6,14 @@
 
     {% if user.is_authenticated %}
 
+        {% for food in feed %}
+            <img src="{{ food.avatar.url }}"  alt="">
+            <h2>{{ food.name }}</h2>
+            <h3>{{ food.description }}</h3>
+            <img src="{{ food.img.url }}" alt="">
+            <a href="mailto:{{ food.email }}">Email</a>
+        {% endfor %}
+
     {% else %}
      <div class='text1'>
       <h2>support<br/>your local<br>føødbuddies.</h2>

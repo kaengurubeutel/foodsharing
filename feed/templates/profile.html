@@ -3,26 +3,27 @@
 {% block content %}
 
 
+    <div id='container'>
+        <h2>{{ user.username }}</h2>
+        <img src="{{ profile.avatar.url  }}" alt="profilbild"/>
+        <h3> {{ profile.email }}</h3>
+        <h1>upload new food</h1>
 
-            <div id='container'>
-                <h2>{{ user.username }}</h2>
-                <img src="{{ profile.avatar.url  }}" alt="profilbild"/>
-                <h3> {{ profile.email }}</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit">Upload</button>
+        </form>
 
-                 <h1>upload new food</h1>
-  <form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-   {{ form.as_p }}
-  <button type="submit">Upload</button>
-</form>
+        {% for food in foods %}
 
-                {% for food in foods %}
-                    <h3>{{ food.description }}</h3>
-                    <div class='img'><img src="{{ food.image.url }}"/></div>
-                    <form action= "{% url 'delete' food.id %}" method="POST">
-                        {% csrf_token %}
-                        <input type="submit" value="delete">
-                    </form>
-                {% endfor %}
-            </div>
+            <form action= "{% url 'delete' food.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="delete">
+            </form>
+            <h3>{{ food.description }}</h3>
+            <div class='img'><img src="{{ food.image.url }}"/></div>
+
+        {% endfor %}
+    </div>
 {% endblock %}
