@@ -15,4 +15,8 @@ $(document).ready(function(){
 
     });
 
+    if ($(document.body).height() < $(window).height()) {
+        $('#footerBackground').attr('style', 'position: fixed!important; bottom: 0px; min-width: 100vw;');
+    }
+
 });

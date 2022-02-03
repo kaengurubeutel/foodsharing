@@ -56,6 +56,7 @@ nav a {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    font-size: 18px;
 }
 
 nav a:hover {
@@ -74,10 +75,11 @@ footer {
     padding: 40px;
     font-size: 18px;
     color: #ECECEC;
+    background-color: black;
 }
 
 footer li, nav li {
-    margin-right: 30px;
+    margin-right: 40px;
 }
 
 footer a {
@@ -201,8 +203,8 @@ form {
 .container {
     grid-column: 1/4;
     display: flex;
-    flex-flow: row wrap;
-    justify-items: center;
+    flex-flow: row-reverse wrap;
+    justify-content: center;
     align-content: center;
 }
 
@@ -233,7 +235,7 @@ form {
 }
 
 .avatar span {
-    margin: 8px;
+    margin: 20px;
 }
 
 .description {
@@ -305,4 +307,47 @@ textarea {
 .profile h3 {
     padding: 20px 0;
     font-size: 30px;
+}
+
+
+/* CSS für Tablet */
+
+
+@media (max-width:992px) {
+
+    nav {
+        grid-column: 2/4;
+    }
+
+    .profile {
+        grid-column: 2/3;
+        margin-left: 0;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .upload {
+        grid-column: 2/3;
+        grid-row: 3/4;
+        margin-right: 0;
+    }
+}
+
+/* CSS für Smartphone */
+
+@media (max-width:768px) {
+
+    .formula {
+        grid-column: 1/4;
+        padding: 180px;
+    }
+
+    .profile {
+        grid-column: 1/4;
+    }
+
+    .upload {
+        grid-column: 1/4;
+    }
+
 }
