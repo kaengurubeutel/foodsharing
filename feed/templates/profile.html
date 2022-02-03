@@ -3,25 +3,32 @@
 {% block content %}
 
 
-    <div id='container'>
+        <div class="profile">
         <h2>{{ user.username }}</h2>
-        <img src="{{ profile.avatar.url  }}" alt="profilbild"/>
+        <img id="profilePicture" src="{{ profile.avatar.url  }}" alt="profilbild"/>
         <h3> {{ profile.email }}</h3>
-        <h1>upload new food</h1>
+        </div>
+    <div class="upload">
+        <h2>upløad<br/>new føød</h2>
+
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-        <button type="submit">Upload</button>
+        <button type="submit">Upløad</button>
         </form>
+    </div>
 
+    <div class="container">
         {% for food in foods %}
 
+            <div class="img">
             <form action= "{% url 'delete' food.id %}" method="POST">
                 {% csrf_token %}
-                <input type="submit" value="delete">
+                <input id="delete" type="submit" value="delete"/>
             </form>
-            <h3>{{ food.description }}</h3>
-            <div class='img'><img src="{{ food.image.url }}"/></div>
+            <div class='post'><img src="{{ food.image.url }}"/></div>
+            <h3 class="description">{{ food.description }}</h3>
+            </div>
 
         {% endfor %}
     </div>
