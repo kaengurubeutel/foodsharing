@@ -27,7 +27,9 @@
                 <input id="delete" type="submit" value="delete"/>
             </form>
             <div class='post'><img src="{{ food.image.url }}"/></div>
-            <h3 class="description">{{ food.description }}</h3>
+                <div class="description">
+            <h3>{{ food.description }}</h3>
+                </div>
             </div>
 
         {% endfor %}

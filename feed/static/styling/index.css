@@ -90,7 +90,6 @@ footer a {
 #footerBackground {
     grid-column: 1/4;
     justify-self: stretch;
-    align-self: flex-end;
 
     background-color: black;
 }
