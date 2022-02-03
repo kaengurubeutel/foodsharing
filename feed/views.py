@@ -18,12 +18,13 @@ class FoodForm(forms.ModelForm):
 
 
 class Foodcontent:
-    def __init__(self, name, img, email, description, avatar):
+    def __init__(self, name, img, email, description, avatar, hometown):
         self.name = name
         self.img = img
         self.email = email
         self.description = description
         self.avatar = avatar
+        self.hometown = hometown
 
 
 def homepage(request):
@@ -35,7 +36,7 @@ def homepage(request):
         for food in foods:
             profile_tmp = Profile.objects.filter(user=food.user)[0]
             feed.append(
-                Foodcontent(food.user.username, food.image, profile_tmp.email, food.description, profile_tmp.avatar))
+                Foodcontent(food.user.username, food.image, profile_tmp.email, food.description, profile_tmp.avatar, profile_tmp.hometown))
 
     else:
         feed = []

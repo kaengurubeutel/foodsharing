@@ -7,7 +7,8 @@ from django.contrib.auth.models import User
 class Profile (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True)
     avatar = models.ImageField("Avatar", upload_to="avatar", blank=True, null= True)
-    email = models.CharField('email', max_length=20, default="Bielefeld")
+    email = models.CharField('email', max_length=20, default="Test@email.de")
+    hometown = models.CharField('hometown', max_length=20, default="Bielefeld")
 
 
 class Food(models.Model):
