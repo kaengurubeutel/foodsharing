@@ -4,12 +4,19 @@
 }
 
 body {
+    height: 100%;
+    width: 100%;
     background-color: #ECECEC;
     font-family: 'Apercu', sans-serif;
+}
+
+main {
+    min-height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
+    grid-template-rows: auto 1fr auto;
 }
 
 h2 {
@@ -58,13 +65,10 @@ nav a:hover {
 ul li {
     display: inline-block;
     list-style-type: none;
-
-    margin-left: 30px;
 }
 
 footer {
     grid-column: 1/4;
-    grid-row: 7/8;
     justify-self: start;
 
     padding: 40px;
@@ -72,7 +76,7 @@ footer {
     color: #ECECEC;
 }
 
-footer li {
+footer li, nav li {
     margin-right: 30px;
 }
 
@@ -83,9 +87,8 @@ footer a {
 
 #footerBackground {
     grid-column: 1/4;
-    grid-row: 7/8;
     justify-self: stretch;
-    align-self: stretch;
+    align-self: flex-end;
 
     background-color: black;
 }
@@ -212,9 +215,9 @@ form {
 }
 
 .img img {
-    max-height: 300px;
-    max-width: 300px;
-    margin: 5px;
+    width: 100%;
+    max-width: 400px;
+    max-height: 350px;
 }
 
 .avatar img {
@@ -237,11 +240,11 @@ form {
     display: none;
 
     position: relative;
-    top: -100px;
+    top: -200px;
 }
 
 .description h3 {
-    margin-bottom: 10px;
+    margin: 15px;
 }
 
 .email {
