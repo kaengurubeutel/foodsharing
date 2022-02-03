@@ -56,7 +56,6 @@ def upload(request):
     if request.method == "POST":
         form = FoodForm(request.POST, request.FILES)
         form.instance.user = request.user
-        print("hallo")
         if form.is_valid():  # Formular überprüfen
             form.save()
             return redirect('profile')  # Umleitung
@@ -78,9 +77,7 @@ def delete(request, pk):
 
 # gibt daten des Profils und alle Foodposts der Ersteller*in zurück
 def get_profile_posts(request):
-    print("hallo")
     user_id = request.user.id
-
     if request.method == "POST":
         form = FoodForm(request.POST, request.FILES)
         form.instance.user = request.user

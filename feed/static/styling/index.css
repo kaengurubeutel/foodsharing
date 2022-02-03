@@ -20,12 +20,11 @@ h2 {
 
 /* Header (Footer) */
 
-
 #label {
     grid-column: 1/2;
     grid-row: 1/2;
     justify-self: start;
-
+    background-color: aliceblue;
     font-size: 30px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -56,7 +55,6 @@ footer {
     grid-column: 1/4;
     grid-row: 7/8;
     justify-self: start;
-
     padding: 40px;
     font-size: 18px;
     color: #ECECEC;
@@ -103,20 +101,28 @@ footer a {
 
 .mainImg img {
     max-height: 500px;
+    width: 100%
 }
 
 .text2 {
+    align-items: center;
+    background-color: #212520;
+    color: #ECECEC;
     grid-column: 1/4;
     grid-row: 4/5;
-    margin: 30px;
+    margin: 20px;
+    padding-bottom: 100px;
+    padding-top: 100px;
 }
 
 .text2 p {
-    margin: 20px;
+    margin-left: 10%;
+    margin-right: 30%
 }
 
 .text2 h2 {
-    margin-left: 20px;
+    margin-left: 10%;
+    margin-right: 10%
 }
 
 /* Login, Logout, Register */
