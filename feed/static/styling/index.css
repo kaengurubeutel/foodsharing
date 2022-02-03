@@ -20,11 +20,12 @@ h2 {
 
 /* Header (Footer) */
 
+
 #label {
     grid-column: 1/2;
     grid-row: 1/2;
     justify-self: start;
-    background-color: aliceblue;
+
     font-size: 30px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -55,6 +56,7 @@ footer {
     grid-column: 1/4;
     grid-row: 7/8;
     justify-self: start;
+
     padding: 40px;
     font-size: 18px;
     color: #ECECEC;
@@ -110,20 +112,16 @@ footer a {
     color: #ECECEC;
     grid-column: 1/4;
     grid-row: 4/5;
-    margin: 20px;
-    padding-bottom: 100px;
-    padding-top: 100px;
+    margin: 30px;
+    padding: 20px;
 }
 
 .text2 p {
-    margin-left: 10%;
-    margin-right: 30%
+    margin: 20px;
+    padding-bottom: 5px;
+    padding-top: 40px;
 }
 
-.text2 h2 {
-    margin-left: 10%;
-    margin-right: 10%
-}
 
 /* Login, Logout, Register */
 
@@ -150,7 +148,7 @@ button {
     min-height: 40px;
 }
 
-button:hover {
+button:hover, #delete:hover{
     font-weight: bold;
 }
 
@@ -186,7 +184,7 @@ form {
 
 /* feed */
 
-#container {
+.container {
     grid-column: 1/4;
     display: flex;
     flex-flow: row wrap;
@@ -204,7 +202,7 @@ form {
 
 .img img {
     max-height: 300px;
-    width: 300px;
+    max-width: 300px;
     margin: 5px;
 }
 
@@ -223,4 +221,49 @@ form {
 
     position: relative;
     top: -100px;
+}
+
+/* profile */
+
+#profilePicture {
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.profile {
+    grid-column: 1/2;
+    grid-row: 2/3;
+
+    margin-left: 100px;
+}
+
+.upload{
+    grid-column: 3/4;
+    grid-row: 2/3;
+
+    text-align: center;
+    padding: 150px;
+    margin-right: 100px;
+}
+
+.upload h2 {
+    margin: 10px;
+}
+
+textarea {
+    font-family: inherit;
+}
+
+#delete {
+    height: 35px;
+    width: 100px;
+}
+
+.profile h2 {
+    font-size: 40px;
+}
+
+.profile h3 {
+    padding: 20px 0;
+    font-size: 30px;
 }
