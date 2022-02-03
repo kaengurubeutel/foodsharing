@@ -1,5 +1,5 @@
 {% extends 'Navbar.html' %}
-{% block title %}Feed{% endblock %}
+{% block title %}{{ user.username }}{% endblock %}
 {% block content %}
 
 
@@ -8,6 +8,14 @@
                 <h2>{{ user.username }}</h2>
                 <img src="{{ profile.avatar.url  }}" alt="profilbild"/>
                 <h3> {{ profile.email }}</h3>
+
+                 <h1>upload new food</h1>
+  <form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+   {{ form.as_p }}
+  <button type="submit">Upload</button>
+</form>
+
                 {% for food in foods %}
                     <h3>{{ food.description }}</h3>
                     <div class='img'><img src="{{ food.image.url }}"/></div>

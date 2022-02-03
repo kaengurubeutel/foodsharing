@@ -44,16 +44,16 @@ def homepage(request):
 @login_required()
 def upload(request):
     # werden Formulardaten geschickt?
-    print("hallo")
     if request.method == "POST":
         form = FoodForm(request.POST, request.FILES)
         form.instance.user = request.user
+        print("hallo")
         if form.is_valid():  # Formular überprüfen
             form.save()
-            return redirect('homepage')  # Umleitung
+            return redirect('profile')  # Umleitung
     else:
         form = FoodForm()  # leeres Formular
-    return render(request, 'upload.html', dict(form=form))
+    return render(request, 'profile.html', dict(form=form))
 
 
 
@@ -71,19 +71,30 @@ def delete(request, pk):
 def get_profile_posts(request):
     print("hallo")
     user_id = request.user.id
-    if user_id:
-        foods = Food.objects.filter(user=int(user_id))
-        profile = Profile.objects.filter(user=int(user_id))[0]
-        user = request.user
+
+    if request.method == "POST":
+        form = FoodForm(request.POST, request.FILES)
+        form.instance.user = request.user
+        print("hallo")
+        if form.is_valid():  # Formular überprüfen
+            form.save()
+            return redirect('profile')  # Umleitung
     else:
-        foods = []
-        profile = []
-        user = []
-    return render(request, 'profile.html', dict(
-        foods=foods,
-        profile=profile,
-        user=user,
-        ))
+        form = FoodForm()  # leeres Formular
+        if user_id:
+            foods = Food.objects.filter(user=int(user_id))
+            profile = Profile.objects.filter(user=int(user_id))[0]
+            user = request.user
+        else:
+            foods = []
+            profile = []
+            user = []
+        return render(request, 'profile.html', dict(
+            foods=foods,
+            profile=profile,
+            user=user,
+            form=form
+            ))
 
 
 # gibt alle Food posts zurück
