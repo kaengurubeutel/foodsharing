@@ -6,13 +6,25 @@
 
     {% if user.is_authenticated %}
 
+        <div id="container">
         {% for food in feed %}
-            <img src="{{ food.avatar.url }}"  alt="">
-            <h2>{{ food.name }}</h2>
-            <h3>{{ food.description }}</h3>
-            <img src="{{ food.img.url }}" alt="">
+
+            <div class="img">
+            <div class="avatar">
+            <p><img src="{{ food.avatar.url }}"  alt=""/> {{ food.name }}</p>
+            </div>
+            <img src="{{ food.img.url }}" alt=""/>
+                <div class="description">
+            <p>{{ food.description }} alskdjföaifjoais
+            aldskjfaoifja
+            asdilfjal alkdsjflaij kadjfdkfjik iehgakjf iaehgaigh kadjfö
+            aöiolajf
+            ldkjfalö efjiajlk df</p>
             <a href="mailto:{{ food.email }}">Email</a>
+                </div>
+            </div>
         {% endfor %}
+        </div>
 
     {% else %}
      <div class='text1'>

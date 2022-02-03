@@ -141,6 +141,7 @@ button {
     border-radius: 4px;
     padding: 6px 15px;
     margin: 20px;
+    min-height: 40px;
 }
 
 button:hover {
@@ -157,6 +158,8 @@ button:hover {
 
 .formula ul {
     display: none;
+
+    margin: 10px -50px 25px -50px;
 }
 
 #id_description {
@@ -181,11 +184,37 @@ form {
     grid-column: 1/4;
     display: flex;
     flex-flow: row wrap;
+    justify-items: center;
+    align-content: center;
 }
 
 .img {
     height: 400px;
     width: 400px;
     margin: 40px;
-    background-color: lightsalmon;
+    background-color: white;
+    text-align: center;
+}
+
+.img img {
+    max-height: 300px;
+    width: 300px;
+    margin: 5px;
+}
+
+.avatar img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+}
+
+.avatar {
+    text-align: start;
+}
+
+.description {
+    display: none;
+
+    position: relative;
+    top: -100px;
 }
