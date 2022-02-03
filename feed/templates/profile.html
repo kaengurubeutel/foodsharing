@@ -1,12 +1,20 @@
 {% extends 'Navbar.html' %}
 {% block title %}Feed{% endblock %}
 {% block content %}
+
+
+
             <div id='container'>
                 <h2>{{ user.username }}</h2>
                 <img src="{{ profile.avatar.url  }}" alt="profilbild"/>
                 <h3> {{ profile.email }}</h3>
                 {% for food in foods %}
-                    <div class='img'><img src="{{ food.image.url }}"/><br/>{{ food.description }}</div>
+                    <h3>{{ food.description }}</h3>
+                    <div class='img'><img src="{{ food.image.url }}"/></div>
+                    <form action= "{% url 'delete' food.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value="delete">
+                    </form>
                 {% endfor %}
             </div>
 {% endblock %}

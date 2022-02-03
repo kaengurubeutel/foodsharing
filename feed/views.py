@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save
 from django import forms
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from feed import models
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -60,39 +60,29 @@ def upload(request):
 # Löscht Foodpost und gibt alle anderen zurück
 
 @login_required()
-def delete(request):
-    if request.method == "POST":
-        user_id = request.GET.get('user')
-        search_query = Food.objects.filter(id=request.data.get(id))
-        food_to_delete = search_query[0]
-
-        if food_to_delete.user.id == int(user_id):
-            food_to_delete.delete()
-        else:
-            food_to_delete = []
-        return render(request, 'profile.html', dict(
-            foods=Food.objects.all()
-        ))
+def delete(request, pk):
+    user = request.user
+    food_to_delete = get_object_or_404(Food, pk=pk, user=user)
+    food_to_delete.delete()
+    return redirect('profile')
 
 
 # gibt daten des Profils und alle Foodposts der Ersteller*in zurück
-@login_required()
 def get_profile_posts(request):
-    if request.method == "GET":
-        user_id = request.GET.get('user')
-        if user_id:
-            foods = Food.objects.filter(user=int(user_id))
-            profile = Profile.objects.filter(user=int(user_id))
-            user = User.objects.filter(request.get('user'))
-        else:
-            foods = []
-            profile = []
-            user = []
-
-        return render(request, 'profile.html', dict(
-            foods=foods,
-            profile=profile,
-            user=user,
+    print("hallo")
+    user_id = request.user.id
+    if user_id:
+        foods = Food.objects.filter(user=int(user_id))
+        profile = Profile.objects.filter(user=int(user_id))[0]
+        user = request.user
+    else:
+        foods = []
+        profile = []
+        user = []
+    return render(request, 'profile.html', dict(
+        foods=foods,
+        profile=profile,
+        user=user,
         ))
 
 
