@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styling/index.css' %}"/>
 </head>
 <body>
-    <div id="headerBackground"></div>
     <div id="label">
         <h1>føødies</h1>
     </div>
@@ -28,17 +27,17 @@
     {% endif %}
     </ul>
     </nav>
-    </div>
 
 {% block content %}{% endblock %}
 {% block additional_scripts %}{% endblock %}
-<div id="footerBackground"></div>
+<div id="footerBackground">
  <footer>
             <ul>
                 <li><a href="https://www.hs-augsburg.de/Service/Datenschutz.html">Datenschutz</a></li>
                 <li>Impressum</li>
             </ul>
         </footer>
+</div>
 
     <script src="{% static 'styling/script.js' %}"></script>
 </body>
