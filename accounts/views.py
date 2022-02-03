@@ -3,21 +3,22 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 
+
 # Create your views here.
 from feed import models
 
-
 class ProfileForm(forms.ModelForm):
-    """Klasse zur Formularerstellung."""
     class Meta:
         model = models.Profile
         exclude = ['user']
 
 
+
 def register(request):
     if request.method == 'POST':
-        user_form = UserCreationForm(request.POST)
-        profile_form = ProfileForm(request.POST)
+        user_form = UserCreationForm(request.POST, request.FILES)
+        profile_form = ProfileForm(request.POST, request.FILES)
+        print(profile_form)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()  # Neuen User anlegen
             profile_form.save()

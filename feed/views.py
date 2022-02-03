@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save
 from django import forms
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from feed import models
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -50,7 +50,7 @@ def upload(request):
         form.instance.user = request.user
         if form.is_valid():  # Formular überprüfen
             form.save()
-            return HttpResponseRedirect('feed')  # Umleitung
+            return redirect('homepage')  # Umleitung
     else:
         form = FoodForm()  # leeres Formular
     return render(request, 'upload.html', dict(form=form))
