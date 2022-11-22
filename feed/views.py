@@ -44,10 +44,6 @@ def homepage(request):
     return render(request, 'index.html', dict(
         feed=feed
     ))
-    
-
-
-
 
 # für die folgenenden Views muss man angemeldet sein
 
